@@ -1,7 +1,7 @@
-import { Gallery } from 'components/ImageGallery/ImageGallery.styled'
-import {ImageGalleryItem} from 'components/ImageGalleryItem/ImageGalleryItem'
+import { Gallery } from 'components/ImageGallery/ImageGallery.styled';
+import { ImageGalleryItem } from 'components/ImageGalleryItem/ImageGalleryItem';
 
-export const ImageGallery = ( {photos} ) => {
+export const ImageGallery = ({ photos }) => {
   return (
     <Gallery>
       {photos.map(photo => (

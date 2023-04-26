@@ -1,7 +1,12 @@
-export const ImageGalleryItem = ({ props: { key, smallImage, bigImage } }) => {
+import {
+  GalleryItem,
+  GalleryItemImage,
+} from 'components/ImageGalleryItem/ImageGalleryItem.styled';
+
+export const ImageGalleryItem = ({ smallImage, bigImage }) => {
   return (
-    <li key={key}>
-      <img src={smallImage} alt="" />
-    </li>
+    <GalleryItem>
+      <GalleryItemImage src={smallImage} alt="" />
+    </GalleryItem>
   );
 };
