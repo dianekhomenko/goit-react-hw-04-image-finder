@@ -1,16 +1,38 @@
-export const App = () => {
-  return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
-  );
+import React, { Component } from 'react';
+import { Searchbar } from './Search/Searchbar';
+import axios from 'axios';
+import {Layout} from 'components/Layout.styled'
+
+axios.defaults.baseURL = 'https://pixabay.com/api/';
+const API_KEY = '34409732-2eb98e59aad866aa53f09776f';
+
+export class App extends Component {
+  state = {
+    search: '',
+    photos: [],
+  };
+
+  onSearch = e => {
+    e.preventDefault();
+    this.setState({
+      search: e.currentTarget.elements.searchbar.value,
+    });
+  };
+
+  async componentDidUpdate(prevProps, prevState) {
+    if (prevState.search !== this.state.search) {
+      const response = await axios.get(
+        `?q=${this.state.search}&page=1&key=${API_KEY}&image_type=photo&orientation=horizontal&per_page=12`
+      );
+      this.setState({ photos: response.data.hits });
+    }
+  }
+
+  render() {
+    return (
+      <Layout>
+        <Searchbar onSubmit={this.onSearch} />
+      </Layout>
+    );
+  }
 };
