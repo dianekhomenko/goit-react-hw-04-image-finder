@@ -1,4 +1,5 @@
-import {Load} from 'components/Button/Button.styled'
+import { Load } from 'components/Button/Button.styled'
+import PropTypes from 'prop-types'
 
 export const Button = ({ onLoad }) => {
   return (
@@ -7,3 +8,7 @@ export const Button = ({ onLoad }) => {
     </Load>
   );
 };
+
+Button.propTypes = {
+  onLoad: PropTypes.func,
+}

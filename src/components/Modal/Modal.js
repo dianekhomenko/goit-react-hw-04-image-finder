@@ -1,11 +1,13 @@
-import { Overlay, ModalPhoto } from 'components/Modal/Modal.styled';
+import PropTypes from 'prop-types';
 
 export function ModalItem({ bigImage }) {
   return (
-    <Overlay>
-      <ModalPhoto>
-        <img src={bigImage} alt="" />
-      </ModalPhoto>
-    </Overlay>
+    <div>
+      <img src={bigImage} alt="" />
+    </div>
   );
+}
+
+ModalItem.propTypes = {
+  bigImage: PropTypes.string,
 }
