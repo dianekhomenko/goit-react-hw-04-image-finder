@@ -25,3 +25,9 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+.loader {
+  position: fixed;
+  justify-self: center;
+  top: 50%;
+}
