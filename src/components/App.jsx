@@ -23,6 +23,7 @@ export class App extends Component {
       search: e.currentTarget.elements.searchbar.value,
       page: 1,
     });
+    e.currentTarget.elements.searchbar.value = '';
   };
 
   onLoad = e => {
